@@ -5,4 +5,4 @@ import { sayHello } from '@me/shared-lib/sayHello';
 // * ... Since people who says "hi" are the most polite, the compiler would be surprised if we ask to yell here
 type SayHiAvailableModes = Exclude<HelloMode, typeof HELLO_MODES.yell>;
 
-export const sayHi = (params: { mode: SayHiAvailableModes }) => sayHello(params, 'Hi');
+export const sayHi = (params: { mode: SayHiAvailableModes }) => sayHello(params, { __MSG: 'Hi' });

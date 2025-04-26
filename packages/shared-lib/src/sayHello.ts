@@ -10,4 +10,5 @@ const MATCHING_TRANSFORMATIONS = {
   [HELLO_MODES.neutral]: (string: string) => string
 } as const satisfies Record<HelloMode, (string: string) => string>;
 
-export const sayHello = ({ mode }: { mode: HelloMode }, __HELLO_MSG = HELLO_MSG) => console.log(MATCHING_TRANSFORMATIONS[mode](__HELLO_MSG));
+export const sayHello = ({ mode }: { mode: HelloMode }, { __MSG = HELLO_MSG }: { __MSG?: string } = {}) =>
+  console.log(MATCHING_TRANSFORMATIONS[mode](__MSG));
