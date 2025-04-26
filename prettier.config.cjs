@@ -3,14 +3,14 @@
 /** @type {import("prettier").Config} */
 const config = {
   bracketSameLine: false,
-  trailingComma: "none",
+  trailingComma: 'none',
   bracketSpacing: true,
-  proseWrap: "always",
+  proseWrap: 'always',
   singleQuote: true,
   printWidth: 150,
   useTabs: false,
   tabWidth: 2,
-  semi: true,
+  semi: true
 };
 
 module.exports = config;
