@@ -1,9 +1,9 @@
-import { HELLO_MODES } from '@me/shared-types/Hello';
+import { SAY_MODES } from '@me/shared-types/Hello';
 import { sayHello } from '@me/shared-lib/sayHello';
 
 import { sayHi } from './lib/sayHi';
 
-const { neutral, yell, shy } = HELLO_MODES;
+const { neutral, yell, shy } = SAY_MODES;
 
 sayHello({ mode: yell });
 sayHello({ mode: neutral });

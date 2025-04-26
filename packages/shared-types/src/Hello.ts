@@ -1,9 +1,9 @@
-export const HELLO_MODES = {
+export const SAY_MODES = {
   neutral: 'N',
   yell: 'Y',
   shy: 'S'
 } as const;
 
-export type HelloMode = (typeof HELLO_MODES)[keyof typeof HELLO_MODES];
+export type SayOptions = { mode: SayMode; msg?: string };
 
-export type SayOptions = { mode: HelloMode; msg?: string };
+type SayMode = (typeof SAY_MODES)[keyof typeof SAY_MODES];
