@@ -5,12 +5,16 @@
   "version": "0.0.0",
   "description": "lib",
   "exports": {
-    "./sayHello": "./src/sayHello.ts"
+    "./sayHello": "./src/sayHello.ts",
+    "./say": "./src/say.ts"
   },
   "typesVersions": {
     "*": {
       "sayHello": [
         "./src/sayHello.ts"
+      ],
+      "say": [
+        "./src/say.ts"
       ]
     }
   },
