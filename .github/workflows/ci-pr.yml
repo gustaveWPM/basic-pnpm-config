@@ -1,0 +1,88 @@
+name: CI/PR
+
+on:
+  pull_request:
+    branches: ['**']
+
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  format-check:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Install project
+        run: pnpm install
+      - name: Formatcheck
+        run: pnpm ci:format-check
+
+  lint:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Restore ESLint cache
+        uses: actions/cache@v4
+        with:
+          path: .eslintcache
+          key: eslint-${{ runner.os }}-${{ hashFiles('**/*.ts', '**/*.tsx', 'package.json', 'pnpm-lock.yaml') }}
+          restore-keys: |
+            eslint-${{ runner.os }}-
+      - name: Install project
+        run: pnpm install
+      - name: Run ESLint
+        run: pnpm lint
+
+  typecheck:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Install project
+        run: pnpm install
+      - name: Typecheck
+        run: pnpm typecheck
+
+  build:
+    runs-on: 'ubuntu-latest'
+    if: github.event.pull_request.draft == false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Install project
+        run: pnpm install
+      - name: Build
+        run: pnpm build

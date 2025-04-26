@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "name": "@me/shared-types",
+  "license": "ISC",
+  "version": "0.0.0",
+  "description": "types",
+  "files": [
+    "src"
+  ],
+  "exports": {
+    "./Hello": "./src/Hello.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "Hello": [
+        "./src/Hello.ts"
+      ]
+    }
+  }
+}

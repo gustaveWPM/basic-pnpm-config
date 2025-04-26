@@ -1,0 +1,48 @@
+{
+  "name": "basic-pnpm-config",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "main": "index.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "prepare": "husky",
+    "build": "esbuild src/index.ts --bundle --platform=node --format=esm --outfile=dist/index.js",
+    "dev": "esbuild src/index.ts --bundle --platform=node --format=esm --outfile=dist/index.js --watch",
+    "format": "prettier --log-level warn --write .",
+    "lint": "eslint . --ext .ts --cache",
+    "typecheck": "tsc --build --noEmit --pretty tsconfig.json",
+    "commit": "git-cz",
+    "ci:format-check": "prettier . --check"
+  },
+  "devDependencies": {
+    "@commitlint/config-conventional": "^19.8.0",
+    "@commitlint/cz-commitlint": "^19.8.0",
+    "@types/eslint": "^8.56.10",
+    "@types/node": "^22.13.14",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
+    "commitizen": "^4.3.1",
+    "editorconfig": "^2.0.1",
+    "esbuild": "^0.25.3",
+    "eslint": "^8.57.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-only-error": "^1.0.2",
+    "eslint-plugin-perfectionist": "^2.10.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-unused-imports": "^3.2.0",
+    "lint-staged": "^15.5.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@me/shared-types": "*",
+    "@me/shared-lib": "*",
+    "husky": "^9.1.7"
+  },
+  "engines": {
+    "node": "^22.x",
+    "pnpm": "10.x"
+  }
+}

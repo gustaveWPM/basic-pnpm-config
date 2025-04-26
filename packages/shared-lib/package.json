@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "name": "@me/shared-lib",
+  "license": "ISC",
+  "version": "0.0.0",
+  "description": "lib",
+  "exports": {
+    "./sayHello": "./src/sayHello.ts"
+  },
+  "typesVersions": {
+    "*": {
+      "sayHello": [
+        "./src/sayHello.ts"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@me/shared-types": "*"
+  }
+}
