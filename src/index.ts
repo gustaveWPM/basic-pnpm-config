@@ -1,14 +1,14 @@
-import { EHelloMode } from '@me/shared-types/Hello';
+import { helloModes } from '@me/shared-types/Hello';
 import { sayHello } from '@me/shared-lib/sayHello';
 
 import { sayHi } from './lib/sayHi';
 
-sayHello({ mode: EHelloMode.YELL });
-sayHello({ mode: EHelloMode.NEUTRAL });
-sayHello({ mode: EHelloMode.SHY });
+sayHello({ mode: helloModes.yellMode });
+sayHello({ mode: helloModes.neutralMode });
+sayHello({ mode: helloModes.shyMode });
 
-sayHi({ mode: EHelloMode.NEUTRAL });
-sayHi({ mode: EHelloMode.SHY });
+sayHi({ mode: helloModes.neutralMode });
+sayHi({ mode: helloModes.shyMode });
 
 // @ts-expect-error
-sayHi({ mode: EHelloMode.YELL });
+sayHi({ mode: helloModes.yellMode });

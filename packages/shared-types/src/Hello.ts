@@ -1,7 +1,11 @@
-export enum EHelloMode {
-  NEUTRAL,
-  YELL,
-  SHY
-}
+const neutralMode = Symbol();
+const yellMode = Symbol();
+const shyMode = Symbol();
 
-export type HelloMode = EHelloMode;
+export const helloModes = {
+  neutralMode,
+  yellMode,
+  shyMode
+} as const;
+
+export type HelloMode = (typeof helloModes)[keyof typeof helloModes];
