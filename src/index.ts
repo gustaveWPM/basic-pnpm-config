@@ -3,14 +3,14 @@ import { sayHello } from '@me/shared-lib/sayHello';
 
 import { sayHi } from './lib/sayHi';
 
-const { neutralMode, yellMode, shyMode } = HELLO_MODES;
+const { neutral, yell, shy } = HELLO_MODES;
 
-sayHello({ mode: yellMode });
-sayHello({ mode: neutralMode });
-sayHello({ mode: shyMode });
+sayHello({ mode: yell });
+sayHello({ mode: neutral });
+sayHello({ mode: shy });
 
-sayHi({ mode: neutralMode });
-sayHi({ mode: shyMode });
+sayHi({ mode: neutral });
+sayHi({ mode: shy });
 
 // @ts-expect-error
-sayHi({ mode: yellMode });
+sayHi({ mode: yell });
